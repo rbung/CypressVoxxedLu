@@ -21,9 +21,9 @@ describe('Navigation', function () {
 
         cy.log('Logging in')
         cy.visit('/login')
-        cy.get('input[type=email]').type('cypress@devoxx.fr')
-        cy.get('input[type=password]').type('cypressdevoxx{enter}')
+        cy.get('input[type=email]').type('cypress@voxxed.lu')
+        cy.get('input[type=password]').type('luxembourg{enter}')
         cy.url().should('contain', '/')
-        cy.contains('cypressdevoxx').should('exist')
+        cy.contains('CypressVoxxedLu').should('exist')
     })
 })

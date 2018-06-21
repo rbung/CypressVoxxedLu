@@ -54,7 +54,7 @@ describe('Article page', function () {
 
     context('In an authenticated context', function () {
         beforeEach(function () {
-            cy.login('cypress@devoxx.fr', 'cypressdevoxx')
+            cy.login('cypress@voxxed.lu', 'luxembourg')
 
             cy.server()
             cy.route('/api/articles/article2-oni8y2', 'fixture:/article/article-oni8y2.json').as('getArticle')
@@ -89,15 +89,6 @@ describe('Article page', function () {
             cy.contains('TO DELETE').should('not.exist')
         })
 
-        it('should not have visual regression', function () {
-            cy.server()
-            cy.route('/api/articles/article2-oni8y2', 'fixture:/article/article-oni8y2.json').as('getArticle')
-            cy.route('/api/articles/article2-oni8y2/comments', 'fixture:/comments/comments-oni8y2.json').as('getArticleComments')
-            cy.route('/sockjs-node/**', {})
-
-            cy.wait(['@getArticle', '@getArticleComments'])
-            cy.matchScreenshot('article display', {threshold: 0.003})
-        })
     })
 
 })
