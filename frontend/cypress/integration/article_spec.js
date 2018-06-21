@@ -55,9 +55,9 @@ describe('Article page', function () {
     context('In an authenticated context', function () {
         beforeEach(function () {
             cy.visit('/login')
-            cy.get('input[type=email]').type('cypress@devoxx.fr')
-            cy.get('input[type=password]').type('cypressdevoxx{enter}')
-            cy.contains('cypressdevoxx').should('exist')
+            cy.get('input[type=email]').type('cypress@voxxed.lu')
+            cy.get('input[type=password]').type('luxembourg{enter}')
+            cy.contains('CypressVoxxedLu').should('exist')
 
             cy.server()
             cy.route('/api/articles/article2-oni8y2', 'fixture:/article/article-oni8y2.json').as('getArticle')
@@ -91,6 +91,7 @@ describe('Article page', function () {
             cy.get('.ion-trash-a').click()
             cy.contains('TO DELETE').should('not.exist')
         })
+
     })
 
 })
